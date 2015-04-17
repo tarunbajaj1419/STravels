@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="STravels:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="STravels.war">
+      <element id="artifact" artifact-name="STravels:war exploded" />
+    </root>
+  </artifact>
+</component>
