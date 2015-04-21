@@ -3,9 +3,18 @@
  */
 
 angular.module("STravels", [])
-    .controller("HomeController", function ($scope) {
+    .controller("HomeController", function ($scope, $http) {
 
-        $scope.helloTo = {};
-        $scope.helloTo.title = "AngularJS";
+        $scope.loadPeople = function() {
+            var httpRequest = $http({
+                method: 'POST',
+                url: '/ajax/getPeople',
+                data: 'TestData'
+
+            }).success(function(data, status) {
+                $scope.people = data;
+            });
+
+        };
 
     });
