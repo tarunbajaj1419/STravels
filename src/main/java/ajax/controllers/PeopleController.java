@@ -1,13 +1,12 @@
 package ajax.controllers;
 
-import com.sun.deploy.net.HttpResponse;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
@@ -15,12 +14,10 @@ import java.io.IOException;
 public class PeopleController {
 
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json")
-	public void loadPeople(HttpServletResponse httpResponse) throws IOException {
-		System.out.println("In It");
-		httpResponse.setContentType("application/json");
+	public @ResponseBody String loadPeople(@RequestBody String payload) throws IOException {
+		System.out.println("In It : " + payload);
 		JSONObject obj = new JSONObject();
 		obj.put("name", "Tarun");
-		httpResponse.getWriter().write(obj.toString());
-		//return obj.toString();
+		return obj.toString();
 	}
 }
