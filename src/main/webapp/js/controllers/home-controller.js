@@ -3,7 +3,7 @@
  */
 
 angular.module("STravels", [])
-    .controller("HomeController", function ($scope, $http) {
+    .controller("homeController", function ($scope, $http) {
 
         $scope.loadPeople = function() {
             var httpRequest = $http({

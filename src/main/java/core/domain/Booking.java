@@ -1,43 +1,48 @@
 package core.domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import java.time.LocalDateTime;
 
 /**
  * Created by tarunbajaj on 20/04/15.
  */
-public class Booking {
+public class Booking implements JsonSerializable{
 
   private final LocalDateTime bookingDateTime;
-  private final LocalDateTime reservationStartDateTime;
-  private final LocalDateTime reservationEndDateTime;
+  private final LocalDateTime startDateTime;
+  private final LocalDateTime endDateTime;
   private final String pickupAddr;
   private final Customer customer;
+  private final Vehicle vehicle;
 
 
   public Booking(
     LocalDateTime bookingDateTime,
-    LocalDateTime reservationStartDateTime,
-    LocalDateTime reservationEndDateTime,
+    LocalDateTime startDateTime,
+    LocalDateTime endDateTime,
     String pickupAddr,
-    Customer customer) {
+    Customer customer,
+    Vehicle vehicle) {
 
     this.bookingDateTime = bookingDateTime;
-    this.reservationStartDateTime = reservationStartDateTime;
-    this.reservationEndDateTime = reservationEndDateTime;
+    this.startDateTime = startDateTime;
+    this.endDateTime = endDateTime;
     this.pickupAddr = pickupAddr;
     this.customer = customer;
+    this.vehicle = vehicle;
   }
 
   public LocalDateTime getBookingDateTime() {
     return bookingDateTime;
   }
 
-  public LocalDateTime getReservationStartDateTime() {
-    return reservationStartDateTime;
+  public LocalDateTime getStartDateTime() {
+    return startDateTime;
   }
 
-  public LocalDateTime getReservationEndDateTime() {
-    return reservationEndDateTime;
+  public LocalDateTime getEndDateTime() {
+    return endDateTime;
   }
 
   public String getPickupAddr() {
@@ -46,5 +51,20 @@ public class Booking {
 
   public Customer getCustomer() {
     return customer;
+  }
+
+  public Vehicle getVehicle() {
+    return vehicle;
+  }
+
+  @Override
+  public JsonObject toJson() {
+    return Json.createObjectBuilder()
+      .add("bookingDateTime", bookingDateTime.toString())
+      .add("startDateTime", startDateTime.toString())
+      .add("endDateTime", endDateTime.toString())
+      .add("pickupAddr", pickupAddr)
+      .add("customer", customer.toJson())
+      .build();
   }
 }

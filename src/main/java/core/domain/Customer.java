@@ -1,9 +1,12 @@
 package core.domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+
 /**
  * Created by Tarun Bajaj on 09/04/2015.
  */
-public class Customer {
+public class Customer implements JsonSerializable{
 
     private final String name;
     private final String phone;
@@ -31,5 +34,15 @@ public class Customer {
 
     public String getAddress() {
         return address;
+    }
+
+    @Override
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+          .add("name", name)
+          .add("phone", phone)
+          .add("email", email)
+          .add("address", address)
+          .build();
     }
 }

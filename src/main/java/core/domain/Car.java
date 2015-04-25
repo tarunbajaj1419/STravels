@@ -1,5 +1,8 @@
 package core.domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+
 /**
  * Created by Tarun Bajaj on 09/04/2015.
  */
@@ -28,5 +31,14 @@ public class Car implements Vehicle {
     @Override
     public String getMake() {
         return make;
+    }
+
+    @Override
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+          .add("registration", registration)
+          .add("model", model)
+          .add("make", make)
+          .build();
     }
 }

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Sainik Travels</title>
     <script src="/js/scripts/angular.min.js"></script>
-    <script src="/js/controllers/HomeController.js"></script>
+    <script src="/js/controllers/home-controller.js"></script>
 </head>
 <body ng-app="STravels">
 
-<div ng-controller="HomeController" >
-    <h2>Welcome {{people.name}} to the world of Tutorialspoint!</h2>
+<div ng-controller="homeController" >
+    <h2>Booking Address : {{people.name}}</h2>
     <input type="button" value="Load People" ng-click = "loadPeople()" >
 </div>
 

@@ -1,9 +1,12 @@
 package core.domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+
 /**
  * Created by Tarun Bajaj on 09/04/2015.
  */
-public class Driver {
+public class Driver implements JsonSerializable{
 
     private final String name;
     private final String address;
@@ -25,5 +28,14 @@ public class Driver {
 
     public String getPhone() {
         return phone;
+    }
+
+    @Override
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+          .add("name", name)
+          .add("address", address)
+          .add("phone", phone)
+          .build();
     }
 }
