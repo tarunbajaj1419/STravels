@@ -2,7 +2,7 @@
  * Created by tarunbajaj on 20/04/15.
  */
 
-appRoot.controller("BookingController",['$scope', '$http', function ($scope, $http) {
+appRoot.controller("BookingController", ['$scope', '$http', function ($scope, $http) {
 
     $scope.loadPeople = function() {
         var httpRequest = $http({
