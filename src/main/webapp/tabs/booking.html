@@ -1,9 +1,56 @@
 <div ng-controller="BookingController">
-    <p>
-        <label for="pickupDate">Pickup Date & Time:</label>
-        <input type="text" id="pickupDate">
-        <span class="pickupHour">
-            <select name="pickupHour" id="pickupHour">
+    <!--<p>-->
+    <!--<label for="pickupDate">Pickup Date & Time:</label>-->
+    <!--<input type="text" id="pickupDate">-->
+    <!--<span class="pickupHour">-->
+    <!--<select name="pickupHour" id="pickupHour">-->
+    <!--<option value="00">00</option>-->
+    <!--<option value="01">01</option>-->
+    <!--<option value="02">02</option>-->
+    <!--<option value="03">03</option>-->
+    <!--<option value="04">04</option>-->
+    <!--<option value="05">05</option>-->
+    <!--<option value="06">06</option>-->
+    <!--<option value="07">07</option>-->
+    <!--<option value="08">08</option>-->
+    <!--<option value="09">09</option>-->
+    <!--<option value="10" selected="selected">10</option>-->
+    <!--<option value="11">11</option>-->
+    <!--<option value="12">12</option>-->
+    <!--<option value="13">13</option>-->
+    <!--<option value="14">14</option>-->
+    <!--<option value="15">15</option>-->
+    <!--<option value="16">16</option>-->
+    <!--<option value="17">17</option>-->
+    <!--<option value="18">18</option>-->
+    <!--<option value="19">19</option>-->
+    <!--<option value="20">20</option>-->
+    <!--<option value="21">21</option>-->
+    <!--<option value="22">22</option>-->
+    <!--<option value="23">23</option>-->
+    <!--</select>-->
+    <!--</span>-->
+    <!--</p>-->
+    <!--<p>-->
+    <!--<label for="dropDate">Drop Date & Time:</label>-->
+    <!--<input type="text" id="dropDate">-->
+    <!--<span class="pickupMin">-->
+    <!--<select name="pickupMin" id="pickupMin">-->
+    <!--<option value="00">00</option>-->
+    <!--<option value="15">15</option>-->
+    <!--<option value="30">30</option>-->
+    <!--<option value="45">45</option>-->
+    <!--</select>-->
+    <!--</span>-->
+    <!--</p>-->
+    <form role="form">
+        <div class="form-group">
+            <label for="pckdt">Pick Up Date:</label>
+            <input type="date" class="form-control" id="pckdt">
+        </div>
+        <div class="form-group">
+            <label for="pickupHour">Pick Up Time:</label>
+            <select class="form-control" id="pickupHour">
                 <option value="00">00</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -29,19 +76,14 @@
                 <option value="22">22</option>
                 <option value="23">23</option>
             </select>
-        </span>
-    </p>
-    <p>
-        <label for="dropDate">Drop Date & Time:</label>
-        <input type="text" id="dropDate">
-        <span class="pickupMin">
-            <select name="pickupMin" id="pickupMin">
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
+        </div>
+        <div class="form-group">
+            <label for="ride">Ride:</label>
+            <select class="form-control" id="ride">
+                <option value="4">Four Seater</option>
+                <option value="6">Six Seater</option>
             </select>
-        </span>
-    </p>
-
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 </div>

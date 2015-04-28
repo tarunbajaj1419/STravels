@@ -23,21 +23,72 @@
 </head>
 <body ng-app="STravels">
 
-<div ng-controller="HomeController" >
-
-    <div>
-        <img class="img-responsive" src="images/logo.png">
-    </div>
-    <div id="NavTabs">
-        <ul class="nav nav-tabs">
-            <li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
-            <li ng-class="{ active: isActive('/manageBooking')}"><a href="#manageBooking">Manage Booking</a></li>
-            <li ng-class="{ active: isActive('/packages')}"><a href="#packages">Packages</a></li>
-        </ul>
-    </div>
+<div class="row" ng-controller="HomeController">
+    <img class="img-responsive col-md-8" src="images/logo.png">
 </div>
 
-<div ng-view></div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">Sainik Travels</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#/">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">New Booking</a></li>
+                        <li><a href="#">Manage Booing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Packages</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="ng-view col-md-4"></div>
+    <div id="crsl" class="carousel slide col-md-8" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#crsl" data-slide-to="0" class="active"></li>
+            <li data-target="#crsl" data-slide-to="1"></li>
+            <li data-target="#crsl" data-slide-to="2"></li>
+            <li data-target="#crsl" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="images/1.jpg" alt="">
+            </div>
+
+            <div class="item">
+                <img src="images/2.jpg" alt="">
+            </div>
+
+            <div class="item">
+                <img src="images/3.jpg" alt="">
+            </div>
+
+            <div class="item">
+                <img src="images/4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
