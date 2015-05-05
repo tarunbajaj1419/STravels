@@ -5,7 +5,7 @@
 var appRoot = angular.module('STravels', ['ngRoute']);
 
 appRoot.config(['$routeProvider',
-    function($routeProvider) {
+    function ($routeProvider) {
         $routeProvider.
             when('/', {
                 templateUrl: 'tabs/booking.html',
@@ -30,10 +30,9 @@ appRoot.controller('HomeController', ['$scope', '$http', '$location', function (
         return viewLocation === $location.path();
     };
 
-    $scope.$on('$routeChangeSuccess', function () {
-        createDatePicker('pickupDate');
-        createDatePicker('dropDate');
-    });
+    //$scope.$on('$routeChangeSuccess', function () {
+    //    createDatePicker('pickupDate');
+    //});
 
     $scope.loadPeople = function () {
             var httpRequest = $http({
@@ -41,10 +40,10 @@ appRoot.controller('HomeController', ['$scope', '$http', '$location', function (
                 url: '/ajax/getPeople',
                 data: 'TestData'
 
-            }).success(function(data, status) {
-                $scope.people = data;
-            });
+        }).success(function (data, status) {
+            $scope.people = data;
+        });
 
-        };
+    };
 
-    }]);
+}]);

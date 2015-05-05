@@ -12,7 +12,11 @@
                 <label for="pickupDate">Pick Up Date & Time:</label>
             </div>
             <div class="col-md-4">
-                <input type="date" class="form-control" id="pickupDate">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="pickupDate"><span class="input-group-addon"
+                                                                                  onclick="setFocus('pickupDate')"><i
+                        class="glyphicon glyphicon-th"></i></span>
+                </div>
             </div>
             <div class="col-md-2">
                 <select class="form-control" id="pickupHour">
@@ -66,7 +70,9 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-4 col-md-5">
-                <button type="button" ng-click="checkAvail()" class="btn btn-default" ng-class="cls">Check Availability</button>
+                <button type="button" ng-click="checkAvail()" class="btn btn-default" ng-class="cls">Check
+                    Availability
+                </button>
             </div>
         </div>
         <div ng-hide="isAvail">

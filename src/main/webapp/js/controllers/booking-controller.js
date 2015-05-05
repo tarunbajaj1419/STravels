@@ -4,8 +4,10 @@
 
 appRoot.controller("BookingController", ['$scope', function ($scope) {
 
-    $scope.isAvail = true;
+    createDatePicker('pickupDate');
 
+    $scope.isAvail = true;
+    $scope.setFocus = setFocus;
 
     $scope.checkAvail = function ()
     {
