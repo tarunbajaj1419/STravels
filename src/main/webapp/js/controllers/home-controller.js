@@ -2,7 +2,7 @@
  * Created by tarunbajaj on 20/04/15.
  */
 
-var appRoot = angular.module('STravels', ['ngRoute']);
+var appRoot = angular.module('STravels', ['ngRoute', 'ngAnimate']);
 
 appRoot.config(['$routeProvider',
     function ($routeProvider) {
@@ -29,10 +29,6 @@ appRoot.controller('HomeController', ['$scope', '$http', '$location', function (
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
     };
-
-    //$scope.$on('$routeChangeSuccess', function () {
-    //    createDatePicker('pickupDate');
-    //});
 
     $scope.loadPeople = function () {
             var httpRequest = $http({

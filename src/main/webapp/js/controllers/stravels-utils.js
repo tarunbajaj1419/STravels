@@ -17,3 +17,7 @@ var createDatePicker = function (id) {
 var setFocus = function(id) {
     $('#' + id).focus();
 };
+
+var getLabelClass = function() {
+    return "";
+};

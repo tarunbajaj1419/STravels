@@ -6,12 +6,27 @@ appRoot.controller("BookingController", ['$scope', function ($scope) {
 
     createDatePicker('pickupDate');
 
-    $scope.isAvail = true;
     $scope.setFocus = setFocus;
 
-    $scope.checkAvail = function ()
+    var checkAvail = function ()
     {
-        $scope.isAvail = !$scope.isAvail;
-        $scope.cls = $scope.isAvail ? 'btn-success' : 'btn-danger';
+        return true;
     };
+
+    $scope.book = function ()
+    {
+        if(!($scope.isAvail = checkAvail()))
+        {
+            $scope.cls = 'btn-danger';
+        }else
+        {
+            $scope.alert = true;
+        }
+    };
+
+    $scope.reset = function ()
+    {
+        $scope.isAvail = null;
+        $scope.pickupDate = null;
+    }
 }]);
