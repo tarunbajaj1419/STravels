@@ -7,6 +7,8 @@ appRoot.controller("BookingController", ['$scope', function ($scope) {
     createDatePicker('pickupDate');
 
     $scope.setFocus = setFocus;
+    $scope.getFormControlClass = getFormControlClass;
+    $scope.getFormControlOffsetClass = getFormControlOffsetClass;
 
     var checkAvail = function ()
     {

@@ -42,4 +42,7 @@ appRoot.controller('HomeController', ['$scope', '$http', '$location', function (
 
     };
 
+    $scope.getFormControlClass = getFormControlClass;
+    $scope.getFormControlOffsetClass = getFormControlOffsetClass;
+
 }]);
