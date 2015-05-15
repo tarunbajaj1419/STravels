@@ -2,10 +2,10 @@
  * Created by tarunbajaj on 20/04/15.
  */
 
-appRoot.controller("BookingController", ['$scope', function ($scope) {
+appRoot.controller("BookingController", ['$scope', '$location', function ($scope, $location) {
 
-    createDatePicker('pickupDate');
-
+    $scope.path = $location.path();
+    $scope.hide = $scope.path !== '/outstationBooking' ;
     $scope.setFocus = setFocus;
     $scope.getFormControlClass = getFormControlClass;
     $scope.getFormControlOffsetClass = getFormControlOffsetClass;
@@ -17,18 +17,14 @@ appRoot.controller("BookingController", ['$scope', function ($scope) {
 
     $scope.book = function ()
     {
-        if(!($scope.isAvail = checkAvail()))
-        {
-            $scope.cls = 'btn-danger';
-        }else
-        {
-            $scope.alert = true;
-        }
+        $scope.isAvail = checkAvail();
     };
 
     $scope.reset = function ()
     {
         $scope.isAvail = null;
         $scope.pickupDate = null;
-    }
+    };
+
+    createDatePicker('pickupDate');
 }]);

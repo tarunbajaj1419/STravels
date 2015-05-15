@@ -1,5 +1,5 @@
 <div id="bookingCont" class="container-fluid" ng-controller="BookingController">
-    <form class="form-horizontal" role="form" name="form">
+    <form class="form" role="form" name="form">
 
         <div class="form-group">
             <h3 class="text-center">
@@ -11,20 +11,20 @@
             ride +
             ' Seater for ' + days + ' days'}}
         </div>
-        <div class="animate" ng-show="!isAvail" ng-init="pickupHour='10'; pickupMin='00'; ride='4'">
+        <div class="animate" ng-show="!isAvail"
+             ng-init="pickupHour='10'; pickupMin='00'; ride='4'; rideType='Drop'; days='3'">
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,4)">
-                    <label for="pickupDate">Pick Up Date & Time:</label>
-                </div>
-                <div ng-class="getFormControlClass(4,4,5,8)">
+                <label for="pickupDate" ng-class="getFormControlClass(4,4,4,12)">Pick Up:</label>
+                <div ng-class="getFormControlClass(4,4,4,12)">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="pickupDate" ng-model="pickupDate" required>
-                    <span class="input-group-addon" onclick="setFocus('pickupDate')">
+                        <input class="pickupDate form-control" data-date-format="mm/dd/yyyy" id="pickupDate"
+                               ng-model="pickupDate" required>
+                    <span class="input-group-addon " ng-click="setFocus('pickupDate')">
                         <i class="glyphicon glyphicon-th"></i>
                     </span>
                     </div>
                 </div>
-                <div ng-class="getFormControlClass(2,2,2,4)">
+                <div ng-class="getFormControlClass(2,2,2,6)">
                     <select class="form-control" id="pickupHour" ng-model="pickupHour">
                         <option value="00">00 hrs</option>
                         <option value="01">01 hrs</option>
@@ -52,7 +52,7 @@
                         <option value="23">23 hrs</option>
                     </select>
                 </div>
-                <div ng-class="getFormControlClass(2,2,2,4)">
+                <div ng-class="getFormControlClass(2,2,2,6)">
                     <select class="form-control" id="pickupMin" ng-model="pickupMin">
                         <option value="00">00 mins</option>
                         <option value="15">15 mins</option>
@@ -62,48 +62,56 @@
                 </div>
             </div>
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,4)">
-                    <label for="ride">Ride:</label>
-                </div>
-                <div ng-class="getFormControlClass(8,8,9,8)">
+                <label for="ride" ng-class="getFormControlClass(4,4,4,12)">Ride:</label>
+                <div ng-class="getFormControlClass(4,4,4,12)">
                     <select class="form-control" id="ride" ng-model="ride">
                         <option value="4">Four Seater</option>
                         <option value="6">Six Seater</option>
                     </select>
                 </div>
-
+                <div ng-class="getFormControlClass(4,4,4,12)">
+                    <select class="form-control" id="rideType" ng-model="rideType">
+                        <option value="Drop">Drop only</option>
+                        <option value="Return">Return</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{hidden: hide}" onshow="create()">
+                <label for="days" ng-class="getFormControlClass(4,4,4,12)">No of Days:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
+                    <select class="form-control" id="days" ng-model="days">
+                        <option value="1">1 day</option>
+                        <option value="2">2 days</option>
+                        <option value="3">3 days</option>
+                        <option value="4">4 days</option>
+                        <option value="5">5 days</option>
+                        <option value="6">6 days</option>
+                        <option value="7">7 days</option>
+                        <option value="8">8 days</option>
+                        <option value="9">9 days</option>
+                        <option value="10">10 days</option>
+                        <option value="11">11 days</option>
+                        <option value="12">12 days</option>
+                        <option value="13">13 days</option>
+                        <option value="14">14 days</option>
+                        <option value="15">15 days</option>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
-                <!--<div ng-class="getFormControlClass(4)">-->
-                <!--<label for="days">No Of Days:</label>-->
-                <!--</div>-->
-                <!--<div ng-class="getFormControlClass(4)">-->
-                <!--<select class="form-control" id="days" ng-model="days">-->
-                <!--<option value="1">1</option>-->
-                <!--<option value="2">2</option>-->
-                <!--<option value="3">3</option>-->
-                <!--<option value="4">4</option>-->
-                <!--<option value="5">5</option>-->
-                <!--<option value="6">6</option>-->
-                <!--<option value="7">7</option>-->
-                <!--<option value="8">8</option>-->
-                <!--<option value="9">9</option>-->
-                <!--<option value="10">10</option>-->
-                <!--<option value="11">11</option>-->
-                <!--<option value="12">12</option>-->
-                <!--<option value="13">13</option>-->
-                <!--<option value="14">14</option>-->
-                <!--<option value="15">15</option>-->
-                <!--</select>-->
-                <!--</div>-->
-                <div ng-class="getFormControlClass(1) + getFormControlOffsetClass(4,4,3,4)">
+                <div ng-class="getFormControlClass(4,4,4,12) + getFormControlOffsetClass(4,4,4,0)">
                     <button type="button" ng-click="form.$valid ? book() : setFocus('pickupDate')"
-                            class="btn btn-default">
-                        Book
+                            class="btn btn-default form-control">
+                        Check Availability
                     </button>
                 </div>
-                <div ng-class="getFormControlClass(5)">
-                    <h4><span class="label label-danger" ng-if="isAvail==false"><strong>Sorry!</strong> Cabs are not available.</span>
+            </div>
+            <div class="form-group">
+                <div ng-class="getFormControlClass(8,8,8,12) + getFormControlOffsetClass(4,4,4,0)">
+                    <h4>
+                        <span class="label label-danger center-block" ng-if="isAvail==false">
+                            <strong>Sorry!</strong> Cabs are not available.
+                        </span>
                     </h4>
                     <!--<h4><span class="label label-danger" ng-if="form.$dirty && form.$error.required">Date is required</span></h4>-->
                 </div>
@@ -111,9 +119,7 @@
         </div>
         <div ng-if="isAvail" class="animate">
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,3)">
-                    <label for="name">Name:</label>
-                </div>
+                <label for="name" ng-class="getFormControlClass(4,4,4,12)">Name:</label>
                 <div ng-class="getFormControlClass(2,2,3,3)">
                     <select class="form-control" id="">
                         <option value="Mr" selected="selected">Mr</option>
@@ -122,47 +128,54 @@
                         <option value="Dr">Dr</option>
                     </select>
                 </div>
-                <div ng-class="getFormControlClass(6)">
+                <div ng-class="getFormControlClass(6,6,5,12)">
                     <input type="text" class="form-control" id="name" placeholder="Enter Name">
                 </div>
             </div>
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,3)">
-                    <label for="mobile">Mobile:</label>
-                </div>
-                <div ng-class="getFormControlClass(8,8,9,9)">
+                <label for="mobile" ng-class="getFormControlClass(4,4,4,12)">Mobile:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
                     <input type="tel" class="form-control" id="mobile">
                 </div>
             </div>
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,3)">
-                    <label for="email">Email:</label>
-                </div>
-                <div ng-class="getFormControlClass(8,8,9,9)">
+                <label for="email" ng-class="getFormControlClass(4,4,4,12)">Email:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
                     <input type="email" class="form-control" id="email">
                 </div>
             </div>
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,3)">
-                    <label for="addr">Address:</label>
-                </div>
-                <div ng-class="getFormControlClass(8,8,9,9)">
-                    <textarea class="form-control" rows="5" id="addr"></textarea>
+                <label for="pAddr" ng-class="getFormControlClass(4,4,4,12)">Pick-up Address:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
+                    <textarea class="form-control" rows="5" id="pAddr"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <div ng-class="getFormControlClass(4,4,3,3)">
-                    <label for="lmark">Landmark:</label>
+                <label for="pLmark" ng-class="getFormControlClass(4,4,4,12)">Landmark:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
+                    <input type="text" class="form-control" id="pLmark">
                 </div>
-                <div ng-class="getFormControlClass(8,8,9,9)">
-                    <input type="text" class="form-control" id="lmark">
+            </div>
+            <div class="checkbox" ng-class="getFormControlClass(8,8,8,12) + getFormControlOffsetClass(4,4,4,0)">
+                <label><input type="checkbox" ng-model="sameAddr">Drop Address is same as Pick-up Address</label>
+            </div>
+            <div class="form-group" ng-hide="sameAddr">
+                <label for="dAddr" ng-class="getFormControlClass(4,4,4,12)">Drop Address:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
+                    <textarea class="form-control" rows="5" id="dAddr"></textarea>
+                </div>
+            </div>
+            <div class="form-group" ng-hide="sameAddr">
+                <label for="dLmark" ng-class="getFormControlClass(4,4,4,12)">Landmark:</label>
+                <div ng-class="getFormControlClass(8,8,8,12)">
+                    <input type="text" class="form-control" id="dLmark">
                 </div>
             </div>
             <div class="form-group">
-                <div ng-class="getFormControlClass(3) + getFormControlOffsetClass(4,4,3,3)">
+                <div ng-class="getFormControlClass(3) + getFormControlOffsetClass(4,4,4,0)">
                     <button type="submit" class="btn btn-default">Book</button>
                 </div>
-                <div ng-class="getFormControlClass(4) + getFormControlOffsetClass(1,1,2,2)">
+                <div ng-class="getFormControlClass(4) + getFormControlOffsetClass(1,1,1,5)">
                     <button type="reset" class="btn btn-default pull-right" ng-click="reset()">Start Over
                     </button>
                 </div>

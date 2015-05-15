@@ -11,6 +11,10 @@ appRoot.config(['$routeProvider',
                 templateUrl: 'tabs/booking.html',
                 controller: 'BookingController'
             }).
+            when('/outstationBooking', {
+                templateUrl: 'tabs/booking.html',
+                controller: 'BookingController'
+            }).
             when('/manageBooking', {
                 templateUrl: 'tabs/manageBooking.html',
                 controller: 'ManageBookingController'
