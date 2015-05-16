@@ -7,8 +7,8 @@ appRoot.controller("BookingController", ['$scope', '$location', function ($scope
     $scope.path = $location.path();
     $scope.hide = $scope.path !== '/outstationBooking' ;
     $scope.setFocus = setFocus;
-    $scope.getFormControlClass = getFormControlClass;
-    $scope.getFormControlOffsetClass = getFormControlOffsetClass;
+    $scope.getClass = getClass;
+    $scope.getOffsetClass = getOffsetClass;
 
     var checkAvail = function ()
     {

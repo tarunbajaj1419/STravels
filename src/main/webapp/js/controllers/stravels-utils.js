@@ -12,12 +12,12 @@ var setFocus = function (id) {
     $('#' + id).focus();
 };
 
-var getFormControlClass = function (lg, md, sm, xs) {
+var getClass = function (lg, md, sm, xs) {
 
     var result = "";
     var grids = [
         {id: 'lg', factor: lg >= 0 ? lg : 0},
-        {id: 'md', factor: md >= 0 ? md : lg},
+        //{id: 'md', factor: md >= 0 ? md : lg},
         {id: 'sm', factor: sm >= 0 ? sm : lg},
         {id: 'xs', factor: xs >= 0 ? xs : lg}
     ];
@@ -30,12 +30,12 @@ var getFormControlClass = function (lg, md, sm, xs) {
 
     return result;
 };
-var getFormControlOffsetClass = function (lg, md, sm, xs) {
+var getOffsetClass = function (lg, md, sm, xs) {
 
     var result = "";
     var grids = [
         {id: 'lg', factor: lg >= 0 ? lg : 0},
-        {id: 'md', factor: md >= 0 ? md : lg},
+        //{id: 'md', factor: md >= 0 ? md : lg},
         {id: 'sm', factor: sm >= 0 ? sm : lg},
         {id: 'xs', factor: xs >= 0 ? xs : lg}
     ];

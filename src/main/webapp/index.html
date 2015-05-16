@@ -32,12 +32,12 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div ng-class="getFormControlClass(2,2,3,12)">
+        <div ng-class="getClass(2,2,3,0)">
             <a href="#/">
                 <img class="img-responsive center-block" src="images/logo2.png">
             </a>
         </div>
-        <div ng-class="getFormControlClass(3,3,4,12) + getFormControlOffsetClass(7,7,5,0)">
+        <div ng-class="getClass(3,3,4,0) + getOffsetClass(7,7,5,0)">
             <h4 class="text-center">
                 <span class="glyphicon glyphicon-phone-alt"></span>
                 <span>+91 98183 17750</span>
@@ -85,9 +85,9 @@
     </div>
 </div>
 <div class="row">
-    <div ng-class="getFormControlClass(2,2,0,0)"></div>
-    <div class="ng-view" ng-class="getFormControlClass(6,6,8,12)"></div>
-    <div id="crsl" class="carousel slide" ng-class="getFormControlClass(4)" data-ride="carousel">
+    <div ng-class="getClass(2,2,0,0)"></div>
+    <div class="ng-view" ng-class="getClass(6,6,8,0)"></div>
+    <div id="crsl" class="carousel slide" ng-class="getClass(4)" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#crsl" data-slide-to="0" class="active"></li>
