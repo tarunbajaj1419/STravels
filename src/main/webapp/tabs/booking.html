@@ -1,191 +1,199 @@
-<div id="bookingCont" class="row" ng-controller="BookingController">
+<div id="bookingCont" class="container-fluid" ng-controller="BookingController">
     <div class="col-md-4"></div>
     <div class="col-md-8">
-        <div class="row">
-            <form class="form" role="form" name="form">
+        <form class="form-horizontal" role="form" name="form">
 
-                <div class="row">
-                    <h3 class="text-center">
-                        <label class="label label-default control-label">Delhi &amp; NCR Booking</label>
-                    </h3>
-                </div>
-                <div class="well well-sm animate text-center" ng-if="isAvail">{{pickupDate + ' ' + pickupHour + ':' + pickupMin
-                    + ' - ' +
-                    ride +
-                    ' Seater for ' + days + ' days'}}
-                </div>
-                <div class="animate" ng-show="!isAvail"
-                     ng-init="pickupHour='10'; pickupMin='00'; ride='4'; rideType='Drop'; days='3'">
-                    <div class="row">
-                        <label for="pickupDate" class="col-sm-2">Pick Up:</label>
-                        <div class="col-sm-4">
-                            <div class="input-group">
-                                <input class="pickupDate form-control" data-date-format="mm/dd/yyyy" id="pickupDate"
-                                       ng-model="pickupDate" required>
+            <div class="form-group">
+                <h3 class="text-center">
+                    <label class="label label-default control-label">Delhi &amp; NCR Booking</label>
+                </h3>
+            </div>
+            <div class="well well-sm animate text-center" ng-if="isAvail">{{pickupDate + ' ' + pickupHour + ':' +
+                pickupMin
+                + ' - ' +
+                ride +
+                ' Seater for ' + days + ' days'}}
+            </div>
+            <div class="animate" ng-show="!isAvail"
+                 ng-init="pickupHour='10'; pickupMin='00'; ride='4'; rideType='Drop'; days='3'">
+                <div class="form-group">
+                    <label for="pickupDate" class="control-label col-sm-2">Pick Up:</label>
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input class="pickupDate form-control" data-date-format="mm/dd/yyyy" id="pickupDate"
+                                   ng-model="pickupDate" required>
                     <span class="input-group-addon " ng-click="setFocus('pickupDate')">
                         <i class="glyphicon glyphicon-th"></i>
                     </span>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <select class="form-control" id="pickupHour" ng-model="pickupHour">
-                                <option value="00">00 hrs</option>
-                                <option value="01">01 hrs</option>
-                                <option value="02">02 hrs</option>
-                                <option value="03">03 hrs</option>
-                                <option value="04">04 hrs</option>
-                                <option value="05">05 hrs</option>
-                                <option value="06">06 hrs</option>
-                                <option value="07">07 hrs</option>
-                                <option value="08">08 hrs</option>
-                                <option value="09">09 hrs</option>
-                                <option value="10">10 hrs</option>
-                                <option value="11">11 hrs</option>
-                                <option value="12">12 hrs</option>
-                                <option value="13">13 hrs</option>
-                                <option value="14">14 hrs</option>
-                                <option value="15">15 hrs</option>
-                                <option value="16">16 hrs</option>
-                                <option value="17">17 hrs</option>
-                                <option value="18">18 hrs</option>
-                                <option value="19">19 hrs</option>
-                                <option value="20">20 hrs</option>
-                                <option value="21">21 hrs</option>
-                                <option value="22">22 hrs</option>
-                                <option value="23">23 hrs</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <select class="form-control" id="pickupMin" ng-model="pickupMin">
-                                <option value="00">00 mins</option>
-                                <option value="15">15 mins</option>
-                                <option value="30">30 mins</option>
-                                <option value="45">45 mins</option>
-                            </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <label for="ride" class="col-sm-2">Ride:</label>
-                        <div class="col-sm-5">
-                            <select class="form-control" id="ride" ng-model="ride">
-                                <option value="4">Four Seater</option>
-                                <option value="6">Six Seater</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-5">
-                            <select class="form-control" id="rideType" ng-model="rideType">
-                                <option value="Drop">Drop only</option>
-                                <option value="Return">Return</option>
-                            </select>
-                        </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <select class="form-control" id="pickupHour" ng-model="pickupHour">
+                            <option value="00">00 hrs</option>
+                            <option value="01">01 hrs</option>
+                            <option value="02">02 hrs</option>
+                            <option value="03">03 hrs</option>
+                            <option value="04">04 hrs</option>
+                            <option value="05">05 hrs</option>
+                            <option value="06">06 hrs</option>
+                            <option value="07">07 hrs</option>
+                            <option value="08">08 hrs</option>
+                            <option value="09">09 hrs</option>
+                            <option value="10">10 hrs</option>
+                            <option value="11">11 hrs</option>
+                            <option value="12">12 hrs</option>
+                            <option value="13">13 hrs</option>
+                            <option value="14">14 hrs</option>
+                            <option value="15">15 hrs</option>
+                            <option value="16">16 hrs</option>
+                            <option value="17">17 hrs</option>
+                            <option value="18">18 hrs</option>
+                            <option value="19">19 hrs</option>
+                            <option value="20">20 hrs</option>
+                            <option value="21">21 hrs</option>
+                            <option value="22">22 hrs</option>
+                            <option value="23">23 hrs</option>
+                        </select>
                     </div>
-                    <div class="row" ng-class="{hidden: hide}" onshow="create()">
-                        <label for="days" class="col-sm-2">No of Days:</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="days" ng-model="days">
-                                <option value="1">1 day</option>
-                                <option value="2">2 days</option>
-                                <option value="3">3 days</option>
-                                <option value="4">4 days</option>
-                                <option value="5">5 days</option>
-                                <option value="6">6 days</option>
-                                <option value="7">7 days</option>
-                                <option value="8">8 days</option>
-                                <option value="9">9 days</option>
-                                <option value="10">10 days</option>
-                                <option value="11">11 days</option>
-                                <option value="12">12 days</option>
-                                <option value="13">13 days</option>
-                                <option value="14">14 days</option>
-                                <option value="15">15 days</option>
-                            </select>
-                        </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <select class="form-control" id="pickupMin" ng-model="pickupMin">
+                            <option value="00">00 mins</option>
+                            <option value="15">15 mins</option>
+                            <option value="30">30 mins</option>
+                            <option value="45">45 mins</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-5 col-sm-offset-2">
-                            <button type="button" ng-click="form.$valid ? book() : setFocus('pickupDate')"
-                                    class="btn btn-default form-control">
-                                Check Availability
-                            </button>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="ride" class="control-label col-sm-2">Ride:</label>
+
+                    <div class="col-sm-5">
+                        <select class="form-control" id="ride" ng-model="ride">
+                            <option value="4">Four Seater</option>
+                            <option value="6">Six Seater</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-10 col-sm-offset-2">
-                            <h4>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="rideType" ng-model="rideType">
+                            <option value="Drop">Drop only</option>
+                            <option value="Return">Return</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{hidden: hide}" onshow="create()">
+                    <label for="days" class="control-label col-sm-2">No of Days:</label>
+
+                    <div class="col-sm-10">
+                        <select class="form-control" id="days" ng-model="days">
+                            <option value="1">1 day</option>
+                            <option value="2">2 days</option>
+                            <option value="3">3 days</option>
+                            <option value="4">4 days</option>
+                            <option value="5">5 days</option>
+                            <option value="6">6 days</option>
+                            <option value="7">7 days</option>
+                            <option value="8">8 days</option>
+                            <option value="9">9 days</option>
+                            <option value="10">10 days</option>
+                            <option value="11">11 days</option>
+                            <option value="12">12 days</option>
+                            <option value="13">13 days</option>
+                            <option value="14">14 days</option>
+                            <option value="15">15 days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <button type="button" ng-click="form.$valid ? book() : setFocus('pickupDate')"
+                                class="btn btn-default form-control">
+                            Check Availability
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <h4>
                         <span class="label label-danger center-block" ng-if="isAvail==false">
                             <strong>Sorry!</strong> Cabs are not available.
                         </span>
-                            </h4>
-                            <!--<h4><span class="label label-danger" ng-if="form.$dirty && form.$error.required">Date is required</span></h4>-->
-                        </div>
+                        </h4>
+                        <!--<h4><span class="label label-danger" ng-if="form.$dirty && form.$error.required">Date is required</span></h4>-->
                     </div>
                 </div>
-                <div ng-if="isAvail" class="animate">
-                    <div class="row">
-                        <div class="col-sm-2"><label for="name">Name:</label></div>
-                        <div class="col-xs-3 col-sm-3 col-md-2">
-                            <select class="form-control" id="">
-                                <option value="Mr" selected="selected">Mr</option>
-                                <option value="Ms">Ms</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Dr">Dr</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-9 col-sm-7 col-md-8">
-                            <input type="text" class="form-control" id="name" placeholder="Enter Name">
-                        </div>
+            </div>
+            <div ng-if="isAvail" class="animate">
+                <div class="form-group">
+                    <div class="control-label col-sm-3"><label for="name">Name:</label></div>
+                    <div class="col-xs-3 col-md-2">
+                        <select class="form-control" id="">
+                            <option value="Mr" selected="selected">Mr</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Dr">Dr</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <label for="mobile" class="col-sm-2">Mobile:</label>
-                        <div class="col-sm-10">
-                            <input type="tel" class="form-control" id="mobile">
-                        </div>
+                    <div class="col-xs-9 col-sm-6 col-md-7">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
                     </div>
-                    <div class="row">
-                        <label for="email" class="col-sm-2">Email:</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="control-label col-sm-3">Mobile:</label>
+
+                    <div class="col-sm-9">
+                        <input type="tel" class="form-control" id="mobile" placeholder="+91xxxxxxxxxx">
                     </div>
-                    <div class="row">
-                        <label for="pAddr" class="col-sm-2">Pick-up Address:</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" rows="5" id="pAddr"></textarea>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="control-label col-sm-3">Email:</label>
+
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="email" placeholder="example@xyz.com">
                     </div>
-                    <div class="row">
-                        <label for="pLmark" class="col-sm-2">Landmark:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pLmark">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="pAddr" class="control-label col-sm-3">Pick-up Address:</label>
+
+                    <div class="col-sm-9">
+                        <textarea class="form-control" form-groups="5" id="pAddr" placeholder="Enter pick-up address"></textarea>
                     </div>
-                    <div class="checkbox col-sm-10 col-sm-offset-2">
+                </div>
+                <div class="form-group">
+                    <label for="pLmark" class="control-label col-sm-3">Landmark:</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="pLmark" placeholder="Nearest landmark">
+                    </div>
+                    <div class="checkbox col-sm-9 col-sm-offset-3">
                         <label><input type="checkbox" ng-model="sameAddr">Drop Address is same as Pick-up Address</label>
                     </div>
-                    <div class="row" ng-hide="sameAddr">
-                        <label for="dAddr" class="col-sm-2">Drop Address:</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" rows="5" id="dAddr"></textarea>
-                        </div>
-                    </div>
-                    <div class="row" ng-hide="sameAddr">
-                        <label for="dLmark" class="col-sm-2">Landmark:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="dLmark">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-5 col-sm-2 col-sm-offset-2">
-                            <button type="submit" class="btn btn-default">Book</button>
-                        </div>
-                        <div class="col-xs-5 col-xs-offset-2 col-sm-4 col-sm-offset-4">
-                            <button type="reset" class="btn btn-default pull-right" ng-click="reset()">Start Over
-                            </button>
-                        </div>
+                </div>
+                <div class="form-group" ng-hide="sameAddr">
+                    <label for="dAddr" class="control-label col-sm-3">Drop Address:</label>
+
+                    <div class="col-sm-9">
+                        <textarea class="form-control" form-groups="5" id="dAddr" placeholder="Enter drop address"></textarea>
                     </div>
                 </div>
+                <div class="form-group" ng-hide="sameAddr">
+                    <label for="dLmark" class="control-label col-sm-3">Landmark:</label>
 
-            </form>
-        </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="dLmark" placeholder="Nearest landmark">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-5 col-sm-2 col-sm-offset-3">
+                        <button type="submit" class="btn btn-default">Book</button>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-2 col-sm-4 col-sm-offset-3">
+                        <button type="reset" class="btn btn-default pull-right" ng-click="reset()">Start Over
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
     </div>
 </div>
