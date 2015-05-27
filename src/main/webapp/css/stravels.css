@@ -21,6 +21,10 @@
     padding-right: 10px;
 }
 
+.control-label{
+    text-align: left !important;
+}
+
 .form-control, .input-group {
     margin-bottom: 10px;
 }
@@ -31,10 +35,10 @@
     padding-right: 10px;
 }
 
-/*.row {*/
-    /*margin-left: 0px;*/
-    /*margin-right: 0px;*/
-/*}*/
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
 .slide-image {
     width: 100%;
@@ -53,6 +57,10 @@
     padding: 9px;
 }
 
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
 /*/!*==========  Mobile First Method  ==========*!/*/
 
 /*/!* Custom, iPhone Retina *!/*/
