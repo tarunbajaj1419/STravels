@@ -46,7 +46,4 @@ appRoot.controller('HomeController', ['$scope', '$http', '$location', function (
 
     };
 
-    $scope.getClass = getClass;
-    $scope.getOffsetClass = getOffsetClass;
-
 }]);
