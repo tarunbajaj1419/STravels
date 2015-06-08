@@ -24,32 +24,6 @@ appRoot.controller("BookingController", ['$scope', '$location', function ($scope
         $scope.pickupDate = null;
     };
 
-    createDatePicker('pickupDate');
-}]);
-
-appRoot.controller("PackagesController", ['$scope', '$location', function ($scope, $location) {
-
-    $scope.path = $location.path();
-    $scope.hide = $scope.path !== '/outstationBooking' ;
-    $scope.setFocus = setFocus;
-
-    var checkAvail = function ()
-    {
-        return true;
-    };
-
-    $scope.book = function ()
-    {
-        $scope.isAvail = checkAvail();
-    };
-
-    $scope.reset = function ()
-    {
-        $scope.isAvail = null;
-        $scope.pickupDate = null;
-    };
-
-    createDatePicker('pickupDate');
 }]);
 
 appRoot.controller("CheckAvailabilityController", ['$scope', '$location', function ($scope, $location) {
@@ -69,7 +43,7 @@ appRoot.controller("CheckAvailabilityController", ['$scope', '$location', functi
 
     $scope.book = function ()
     {
-        $scope.isAvail = checkAvail();
+        $location.path('booking');
     };
 
     $scope.reset = function ()
