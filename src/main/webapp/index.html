@@ -57,8 +57,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#/localBooking">Home</a></li>
-                        <li class="dropdown">
+                        <li ng-class="{active: isActive('/')}"><a href="#/">Home</a></li>
+                        <li class="dropdown" ng-class="{active: isActive('/booking')}">
                             <a class="dropdown-toggle" data-toggle="dropdown">Bookings<span
                                     class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -68,7 +68,7 @@
                             </ul>
                         </li>
                         <li><a href="#/packages">Packages</a></li>
-                        <li><a href="#/contact">Contact Us</a></li>
+                        <li ng-class="{active: isActive('/contact')}"><a href="#/contact">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

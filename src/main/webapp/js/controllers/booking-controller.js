@@ -30,7 +30,7 @@ appRoot.controller("CheckAvailabilityController", ['$scope', '$location', functi
 
     $scope.setFocus = setFocus;
 
-    $scope.attributeModified = function ()
+    $scope.$root.attributeModified = function ()
     {
         $scope.isAvail = false;
     };
@@ -46,19 +46,23 @@ appRoot.controller("CheckAvailabilityController", ['$scope', '$location', functi
         $location.path('booking');
     };
 
-    $scope.reset = function ()
-    {
-        $scope.isAvail = null;
-        $scope.pickupDate = null;
-    };
-
-    $scope.booking = {
+    $scope.$root.booking = {
         pickupDate: new Date().toDateString(),
         pickupHour: "10",
         pickupMin: "30",
         ride: "4",
-        type: "1"
-
+        type: "1",
+        for: "1",
+        days: 3,
+        dayList: [1,2,3,4,5,6,7,8,9,10],
+        sameAddr: true,
+        message: function(){
+            return this.pickupDate
+            + ' @' + this.pickupHour + ':'
+            + this.pickupMin + ' - '
+            + this.ride + ' Seater '
+            + (this.for === "2" ? 'for ' + this.days + ' days' : '');
+        }
     };
 
     createDatePicker('pickupDate');

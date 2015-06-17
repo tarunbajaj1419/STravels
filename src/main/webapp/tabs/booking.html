@@ -1,85 +1,86 @@
-<div id="bookingCont" class="container-fluid" ng-controller="BookingController">
-    <div class="col-md-2"></div>
+<div id="bookingCont" ng-controller="BookingController">
+    <div class="col-md-3"></div>
     <div class="col-sm-6">
-        <form class="form-horizontal" role="form" name="form">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align: center">{{booking.message()}}</div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" name="form">
 
-            <div class="well well-sm animate text-center" ng-i="isAvail">{{pickupDate + ' ' + pickupHour + ':' +
-                pickupMin
-                + ' - ' +
-                ride +
-                ' Seater for ' + days + ' days'}}
+                    <div class="animate">
+                        <div class="form-group">
+                            <div class="control-label col-sm-3"><label for="name">Name:</label></div>
+                            <div class="col-xs-3 col-md-2">
+                                <select class="form-control" id="">
+                                    <option value="Mr" selected="selected">Mr</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Dr">Dr</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-9 col-sm-6 col-md-7">
+                                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile" class="control-label col-sm-3">Mobile:</label>
+
+                            <div class="col-sm-9">
+                                <input type="tel" class="form-control" id="mobile" placeholder="+91xxxxxxxxxx">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-sm-3">Email:</label>
+
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="email" placeholder="example@xyz.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pAddr" class="control-label col-sm-3">Pick-up Address:</label>
+
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="pAddr"
+                                          placeholder="Enter pick-up address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pLmark" class="control-label col-sm-3">Landmark:</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="pLmark" placeholder="Nearest landmark">
+                            </div>
+                            <div class="checkbox col-sm-9 col-sm-offset-3">
+                                <label><input type="checkbox" ng-model="booking.sameAddr">Drop Address is same as
+                                    Pick-up
+                                    Address</label>
+                            </div>
+                        </div>
+                        <div ng-hide="booking.sameAddr">
+                            <div class="form-group">
+                                <label for="dAddr" class="control-label col-sm-3">Drop Address:</label>
+
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="dAddr"
+                                              placeholder="Enter drop address"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dLmark" class="control-label col-sm-3">Landmark:</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="dLmark" placeholder="Nearest landmark">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-4 col-sm-offset-3">
+                                <button type="submit" class="btn btn-default" style="width: 100%">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            <div class="animate">
-                <div class="form-group">
-                    <div class="control-label col-sm-3"><label for="name">Name:</label></div>
-                    <div class="col-xs-3 col-md-2">
-                        <select class="form-control" id="">
-                            <option value="Mr" selected="selected">Mr</option>
-                            <option value="Ms">Ms</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Dr">Dr</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-9 col-sm-6 col-md-7">
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="mobile" class="control-label col-sm-3">Mobile:</label>
-
-                    <div class="col-sm-9">
-                        <input type="tel" class="form-control" id="mobile" placeholder="+91xxxxxxxxxx">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email" class="control-label col-sm-3">Email:</label>
-
-                    <div class="col-sm-9">
-                        <input type="email" class="form-control" id="email" placeholder="example@xyz.com">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="pAddr" class="control-label col-sm-3">Pick-up Address:</label>
-
-                    <div class="col-sm-9">
-                        <textarea class="form-control" id="pAddr" placeholder="Enter pick-up address"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="pLmark" class="control-label col-sm-3">Landmark:</label>
-
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="pLmark" placeholder="Nearest landmark">
-                    </div>
-                    <div class="checkbox col-sm-9 col-sm-offset-3">
-                        <label><input type="checkbox" ng-model="sameAddr">Drop Address is same as Pick-up Address</label>
-                    </div>
-                </div>
-                <div class="form-group" ng-hide="sameAddr">
-                    <label for="dAddr" class="control-label col-sm-3">Drop Address:</label>
-
-                    <div class="col-sm-9">
-                        <textarea class="form-control" id="dAddr" placeholder="Enter drop address"></textarea>
-                    </div>
-                </div>
-                <div class="form-group" ng-hide="sameAddr">
-                    <label for="dLmark" class="control-label col-sm-3">Landmark:</label>
-
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="dLmark" placeholder="Nearest landmark">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-5 col-sm-2 col-sm-offset-3">
-                        <button type="submit" class="btn btn-default">Book</button>
-                    </div>
-                    <div class="col-xs-5 col-xs-offset-2 col-sm-4 col-sm-offset-3">
-                        <button type="reset" class="btn btn-default pull-right" ng-click="reset()">Start Over
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </form>
+        </div>
     </div>
 </div>

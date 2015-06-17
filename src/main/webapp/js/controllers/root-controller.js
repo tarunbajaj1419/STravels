@@ -23,6 +23,10 @@ appRoot.config(['$routeProvider',
                 templateUrl: 'tabs/packages.html',
                 controller: 'PackagesController'
             }).
+            when('/contact', {
+                templateUrl: 'tabs/contact.html',
+                controller: 'ContactController'
+            }).
             otherwise({
                 redirectTo: '/'
             });
