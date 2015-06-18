@@ -1,3 +1,12 @@
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
 .carousel-holder {
     margin-bottom: 30px;
 }
@@ -7,13 +16,8 @@
     border-radius: 4px;
 }
 
-.caption {
-    height: 130px;
-    overflow: hidden;
-}
-
-.caption h4 {
-    white-space: nowrap;
+.carousel-inner{
+    height: 400px;
 }
 
 .control-label{
@@ -53,6 +57,10 @@
 .thumbnail .caption-full {
     color: #333;
     padding: 9px;
+}
+
+#map-canvas {
+    height: 455px;
 }
 
 textarea {
